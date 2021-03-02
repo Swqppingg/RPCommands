@@ -1,6 +1,3 @@
-# RPCommands
-FiveM Roleplay Command Pack
-
 # Features:
 - Discord Logging (Coming soon)
 - Easily disable/enable certain commands
