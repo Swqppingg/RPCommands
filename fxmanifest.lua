@@ -1,9 +1,8 @@
--- support the latest resource manifest
-fx_version 'bodacious'
+fx_version 'adamant'
 game 'gta5'
 description 'Roleplay Command Pack'
-version '1.0.0'
+version '1.0.1'
 
 client_script 'client.lua'
-server_script'server.lua'
+server_script 'server.lua'
 shared_script 'config.lua'

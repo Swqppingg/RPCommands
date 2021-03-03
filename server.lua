@@ -8,6 +8,7 @@ RegisterCommand("twt", function(source, args, raw)
         local steam = GetPlayerName(source)
         args = table.concat(args, ' ')
         TriggerClientEvent('chatMessage', -1, "TWITTER | ".. GetPlayerName(source) .."", { 30, 144, 255 }, message)
+        PerformHttpRequest(Config.discordwebhooklink, function(err, text, headers) end, 'POST', json.encode({username = steam, content = "**TWITTER:** ".. message .."", avatar_url = DISCORD_IMAGE}), { ['Content-Type'] = 'application/json' })
     end
 end)
 end
@@ -20,6 +21,7 @@ RegisterCommand("dispatch", function(source, args, raw)
         else
         local message = table.concat(args, " ")
         TriggerClientEvent('chatMessage', -1, "Dispatch | ".. GetPlayerName(source) .."", { 30, 144, 255 }, message)
+        PerformHttpRequest(Config.discordwebhooklink, function(err, text, headers) end, 'POST', json.encode({username = steam, content = "**DISPATCH:** ".. message .."", avatar_url = DISCORD_IMAGE}), { ['Content-Type'] = 'application/json' })
     end
 end)
 end
@@ -34,6 +36,7 @@ RegisterCommand("darkweb", function(source, args, raw)
         local steam = GetPlayerName(source)
         args = table.concat(args, ' ')
         TriggerClientEvent('chatMessage', -1, "Dark Web", { 33, 33, 38 }, message)
+        PerformHttpRequest(Config.discordwebhooklink, function(err, text, headers) end, 'POST', json.encode({username = steam, content = "**DARKWEB:** ".. message .."", avatar_url = DISCORD_IMAGE}), { ['Content-Type'] = 'application/json' })
     end
 end)
 end
@@ -48,6 +51,7 @@ RegisterCommand("news", function(source, args, raw)
         local steam = GetPlayerName(source)
         args = table.concat(args, ' ')
         TriggerClientEvent('chatMessage', -1, "NEWS | ".. GetPlayerName(source) .."", { 194, 255, 51 }, message)
+        PerformHttpRequest(Config.discordwebhooklink, function(err, text, headers) end, 'POST', json.encode({username = steam, content = "**NEWS:** ".. message .."", avatar_url = DISCORD_IMAGE}), { ['Content-Type'] = 'application/json' })
     end
 end)
 end
@@ -60,6 +64,7 @@ RegisterCommand("do", function(source, args, raw)
         else
         local message = table.concat(args, " ")
         TriggerClientEvent('chatMessage', -1, "Do | ".. GetPlayerName(source) .."", { 51, 153, 255 }, message)
+        PerformHttpRequest(Config.discordwebhooklink, function(err, text, headers) end, 'POST', json.encode({username = steam, content = "**DO:** ".. message .."", avatar_url = DISCORD_IMAGE}), { ['Content-Type'] = 'application/json' })
     end
 end)
 end
@@ -74,6 +79,7 @@ RegisterCommand("ooc", function(source, args, raw)
         local steam = GetPlayerName(source)
         args = table.concat(args, ' ')
         TriggerClientEvent('chatMessage', -1, "OOC | ".. GetPlayerName(source) .."", { 128, 128, 128 }, message)
+        PerformHttpRequest(Config.discordwebhooklink, function(err, text, headers) end, 'POST', json.encode({username = steam, content = "**OOC:** ".. message .."", avatar_url = DISCORD_IMAGE}), { ['Content-Type'] = 'application/json' })
     end
 end)
 end
@@ -88,6 +94,7 @@ RegisterCommand("me", function(source, args, raw)
         local steam = GetPlayerName(source)
         args = table.concat(args, ' ')
         TriggerClientEvent('chatMessage', -1, "Me | ".. GetPlayerName(source) .."", { 255, 0, 0 }, message)
+        PerformHttpRequest(Config.discordwebhooklink, function(err, text, headers) end, 'POST', json.encode({username = steam, content = "**ME:** ".. message .."", avatar_url = DISCORD_IMAGE}), { ['Content-Type'] = 'application/json' })
     end
 end)
 end
@@ -98,9 +105,12 @@ RegisterCommand("showid", function(source, color, msg)
 	cm = stringsplit(msg, " ")
 		CancelEvent()
 		if tablelength(cm) == 3 then
-			local firsname = tostring(cm[2])
+			local firstname = tostring(cm[2])
 			local lastname = tostring(cm[3])
-		    TriggerClientEvent("sendMessageShowID", -1, source, firsname, lastname)
+            local steam = GetPlayerName(source)
+		    TriggerClientEvent("sendMessageShowID", -1, source, firstname, lastname)
+            PerformHttpRequest(Config.discordwebhooklink, function(err, text, headers) end, 'POST', json.encode({username = steam, content = '**ShowID** | **First Name:** ' .. firstname .. ' **Last Name:** ' .. lastname .. '', avatar_url = DISCORD_IMAGE}), { ['Content-Type'] = 'application/json' })
+            
 		else
 		    TriggerClientEvent('chatMessage', source, "Use the following format:", {255, 0, 0}, "/showid [First Name] [Last Name]")
 	    end
@@ -133,6 +143,7 @@ end
 -- Version Check
 Citizen.CreateThread(
 	function()
+        if Config.versionchecker then
 		local vRaw = LoadResourceFile(GetCurrentResourceName(), 'version.json')
 		if vRaw and Config.versionCheck then
 			local v = json.decode(vRaw)
@@ -163,4 +174,4 @@ CHANGELOG: %s
 			)
 		end
 	end
-)
+end)
