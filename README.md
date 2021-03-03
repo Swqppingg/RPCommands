@@ -1,5 +1,5 @@
 # Features:
-- Discord Logging (Coming soon)
+- Discord Logging
 - Easily disable/enable certain commands
 
 
