@@ -5,20 +5,13 @@
 
 
 # Commands
-/twt - Tweet something
-
-/dispatch - Dispatch
-
-/darkweb - Send a message on the darkweb
-
-/news - News
-
-/do - Describe an action you are doing.
-
-/ooc - Out of Character chat.
-
-/me - Player actions
-
+/twt - Tweet something\
+/dispatch - Dispatch\
+/darkweb - Send a message on the darkweb\
+/news - News\
+/do - Describe an action you are doing.\
+/ooc - Out of Character chat.\
+/me - Player actions\
 /showid - Show your first name and last name (Only nearby players can see it.)
 
 
