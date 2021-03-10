@@ -2,7 +2,7 @@ Config = {}
 
 
 -- Change this to your webhook link
-Config.discordwebhooklink = '' 
+Config.discordwebhooklink = 'WEBHOOK_HERE' 
 
 
 -- Enable or disable commands
@@ -15,6 +15,8 @@ Config.doo = true
 Config.ooc = true
 Config.me = true
 Config.showid = true
+
+Config.missingargs = "^1Please provide a message."
 
 
 

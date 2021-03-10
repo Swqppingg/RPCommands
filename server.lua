@@ -2,7 +2,7 @@
 if Config.twitter then
 RegisterCommand("twt", function(source, args, raw)
         if #args <= 0 then
-        TriggerClientEvent('chatMessage', source, "^1Please provide a message.")
+        TriggerClientEvent('chatMessage', source, Config.missingargs)
         else
         local message = table.concat(args, " ")
         local steam = GetPlayerName(source)
@@ -17,7 +17,7 @@ end
 if Config.dispatch then
 RegisterCommand("dispatch", function(source, args, raw)
         if #args <= 0 then
-        TriggerClientEvent('chatMessage', source, "^1Please provide a message.")
+        TriggerClientEvent('chatMessage', source, Config.missingargs)
         else
         local message = table.concat(args, " ")
         TriggerClientEvent('chatMessage', -1, "Dispatch | ".. GetPlayerName(source) .."", { 30, 144, 255 }, message)
@@ -30,7 +30,7 @@ end
 if Config.darkweb then
 RegisterCommand("darkweb", function(source, args, raw)
         if #args <= 0 then
-        TriggerClientEvent('chatMessage', source, "^1Please provide a message.")
+        TriggerClientEvent('chatMessage', source, Config.missingargs)
         else
         local message = table.concat(args, " ")
         local steam = GetPlayerName(source)
@@ -45,7 +45,7 @@ end
 if Config.news then
 RegisterCommand("news", function(source, args, raw)
         if #args <= 0 then
-        TriggerClientEvent('chatMessage', source, "^1Please provide a message.")
+        TriggerClientEvent('chatMessage', source, Config.missingargs)
         else
         local message = table.concat(args, " ")
         local steam = GetPlayerName(source)
@@ -60,7 +60,7 @@ end
 if Config.doo then
 RegisterCommand("do", function(source, args, raw)
         if #args <= 0 then
-        TriggerClientEvent('chatMessage', source, "^1Please provide a message.")
+        TriggerClientEvent('chatMessage', source, Config.missingargs)
         else
         local message = table.concat(args, " ")
         TriggerClientEvent('chatMessage', -1, "Do | ".. GetPlayerName(source) .."", { 51, 153, 255 }, message)
@@ -73,7 +73,7 @@ end
 if Config.ooc then
 RegisterCommand("ooc", function(source, args, raw)
         if #args <= 0 then
-        TriggerClientEvent('chatMessage', source, "^1Please provide a message.")
+        TriggerClientEvent('chatMessage', source, Config.missingargs)
         else
         local message = table.concat(args, " ")
         local steam = GetPlayerName(source)
@@ -88,7 +88,7 @@ end
 if Config.me then
 RegisterCommand("me", function(source, args, raw)
         if #args <= 0 then
-        TriggerClientEvent('chatMessage', source, "^1Please provide a message.")
+        TriggerClientEvent('chatMessage', source, Config.missingargs)
         else
         local message = table.concat(args, " ")
         local steam = GetPlayerName(source)
@@ -159,6 +159,7 @@ Citizen.CreateThread(
 RPCommands
 UPDATE: %s AVAILABLE
 CHANGELOG: %s
+DOWNLOAD: https://github.com/Swqppingg/RPCommands
 -------------------------------------------------------
 ^0]]):format(
 									rv.version,
