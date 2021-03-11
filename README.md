@@ -14,7 +14,11 @@
 **/me** - Player actions\
 **/showid** - Show your first name and last name (Only nearby players can see it.)
 
+# :wrench: Support
+Open an issue or join my discord server for support
+https://discord.gg/X3Mb74Phnq
 
+---------------------------------------------------
 
 # Pictures
 
