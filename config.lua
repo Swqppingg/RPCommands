@@ -17,11 +17,3 @@ Config.me = true
 Config.showid = true
 
 Config.missingargs = "^1Please provide a message."
-
-
-
-
--- Set to false to disable version checker
-Config.versionchecker = true
-
-Config.versionCheck = "1.0.1"
